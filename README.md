@@ -1,3 +1,15 @@
+
+## setup file system
+
+mkdir /camera_captures
+tmpfs  /camera_captures tmpfs                            rw,size=100M,uid=jetbot,gip=jetbot,umask=113   0    0
+
+## setup crontab
+sudo service enable cron
+0 0 0 0 0 /home/jetbot/nvidia-camera-capture/scripts/cron_camera_captures.sh
+
+
+
 [![Actions Status](https://github.com/TheLartians/ModernCppStarter/workflows/MacOS/badge.svg)](https://github.com/TheLartians/ModernCppStarter/actions)
 [![Actions Status](https://github.com/TheLartians/ModernCppStarter/workflows/Windows/badge.svg)](https://github.com/TheLartians/ModernCppStarter/actions)
 [![Actions Status](https://github.com/TheLartians/ModernCppStarter/workflows/Ubuntu/badge.svg)](https://github.com/TheLartians/ModernCppStarter/actions)

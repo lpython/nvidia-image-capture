@@ -1,0 +1,2 @@
+0 0 0 0 0 /home/jetbot/cron_camera_captures.sh
+
