@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.14...3.22)
 
 # Note: update this to your new project's name and version
 project(
-  Greeter
+  nv-jetson-image-capture
   VERSION 1.0
   LANGUAGES CXX
 )
@@ -26,12 +26,23 @@ include(cmake/CPM.cmake)
 # PackageProject.cmake will be used to make our target installable
 CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.8.0")
 
-CPMAddPackage(
-  NAME fmt
-  GIT_TAG 8.1.1
-  GITHUB_REPOSITORY fmtlib/fmt
-  OPTIONS "FMT_INSTALL YES" # create an installable target
-)
+# CPMAddPackage(
+#   NAME fmt
+#   GIT_TAG 8.1.1
+#   GITHUB_REPOSITORY fmtlib/fmt
+#   OPTIONS "FMT_INSTALL YES" # create an installable target
+# )
+
+# find_package(PkgConfig) 
+# pkg_search_module(GLIB REQUIRED glib-2.0) 
+# pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
+# pkg_check_modules(GST_APP REQUIRED gstreamer-app-1.0)
+# pkg_check_modules(GST_VIDEO REQUIRED gstreamer-video-1.0)
+
+# include_directories(
+#         /usr/lib/x86_64-linux-gnu/glib-2.0/include
+#         /usr/include/glib-2.0
+#         /usr/local/include/gstreamer-1.0)
 
 # ---- Add source files ----
 
@@ -51,7 +62,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
 target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->")
 
 # Link dependencies
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
+target_link_libraries(${PROJECT_NAME}  ${GSTLIBS_LIBRARIES})
 
 target_include_directories(
   ${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
@@ -74,5 +85,5 @@ packageProject(
   INCLUDE_DESTINATION include/${PROJECT_NAME}-${PROJECT_VERSION}
   VERSION_HEADER "${VERSION_HEADER_LOCATION}"
   COMPATIBILITY SameMajorVersion
-  DEPENDENCIES "fmt 8.1.1"
+  # DEPENDENCIES "fmt 8.1.1"
 )
