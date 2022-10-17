@@ -8,6 +8,17 @@ tmpfs  /camera_captures tmpfs                            rw,size=100M,uid=jetbot
 sudo service enable cron
 0 0 0 0 0 /home/jetbot/nvidia-camera-capture/scripts/cron_camera_captures.sh
 
+## 
+sudo docker run \
+--restart=always \
+--detach --tty \
+--env PYTHONUNBUFFERED=1 \
+--name=ubuntu_aws_nv_nano_upload \
+--network=bridge \
+--mount type=bind,src=/home/jetbot/nvidia-image-capture,dst=/home/nvidia-image-capture \
+--mount type=bind,src=/camera_captures,dst=/camera_captures \
+ubuntu_aws_nv_nano python3 /home/nvidia-image-capture/aws_upload_capture.py
+
 
 
 [![Actions Status](https://github.com/TheLartians/ModernCppStarter/workflows/MacOS/badge.svg)](https://github.com/TheLartians/ModernCppStarter/actions)
