@@ -2,13 +2,20 @@
 ## setup file system
 
 mkdir /camera_captures
-tmpfs  /camera_captures tmpfs                            rw,size=100M,uid=jetbot,gip=jetbot,umask=113   0    0
+tmpfs  /camera_captures tmpfs                            rw,size=100M,uid=jetbot,gid=jetbot,mode=113   0    0
+
 
 ## setup crontab
 sudo service enable cron
 0 0 0 0 0 /home/jetbot/nvidia-camera-capture/scripts/cron_camera_captures.sh
 
-## 
+
+## setup docker daemon to delay until filesystem mounted
+
+`After= ... local-fs.target ...`
+
+
+## create container that always runs upload script 
 sudo docker run \
 --restart=always \
 --detach --tty \
