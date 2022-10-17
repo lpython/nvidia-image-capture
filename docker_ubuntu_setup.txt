@@ -1,0 +1,77 @@
+    1  cmake --version
+    2  exit
+    3  python3
+    4  apt install python3 
+    5  apt update
+    6  apt install python3
+    7  python3
+    8  exit
+    9  python3
+   10  pip
+   11  pip3
+   12  python -m pip
+   13  python3 -m pip
+   14  apt install pip3
+   15  python3 -m pip3
+   16  apt install pip
+   17  pip
+   18  pip --version
+   19  pip install boto3
+   20  ls
+   21  ls home
+   22  ls
+   23  cd home
+   24  ls
+   25  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+   26  apt install curl
+   27  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+   28  unzip awscliv2.zip 
+   29  apt install unzip
+   30  sudo ./aws/install
+   31  ./aws/install
+   32  ls
+   33  unzip awscliv2.zip 
+   34  ./aws/install
+   35  ls
+   36  rm aws
+   37  rm awscliv2.zip 
+   38  cat ./aws/install
+   39  rm -r /usr/local/aws-cli/
+   40  $ curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+   41  unzip awscliv2.zip 
+   42  rm -r aws
+   43  unzip awscliv2.zip 
+   44  ./aws/install
+   45  aws
+   46  aws configure
+   47  aws iam 
+   48  aws iam get-user
+   49  touch test.txt
+   50  echo "wat" >> test.txt
+   51  aws s3 upload
+   52  aws s3 cp test.txt s3://jetson-perseco/
+   53  aws s3 cp test.txt s3://jetbot-perseco/
+   54  cd ..
+   55  ls
+   56  cd usr
+   57  ls
+   58  cd src
+   59  ls
+   60  cd ..
+   61  exit
+   62  cd /usr/local/src
+   63  ls
+   64  cd nvidia-image-capture/
+   65  ls
+   66  touch test.txt
+   67  ls
+   68  echo "from python on nano" >> test.txt
+   69  python3 aws_upload_capture.py 
+   70  python3
+   71  exit
+   72  python3
+   73  cd /home/nvidia-image-capture/
+   74  ls
+   75  python3 aws_upload_capture.py 
+   76  history 
+   77  history >> docker_ubuntu_setup.txt
